@@ -116,5 +116,99 @@ int main()
         }
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    #include <iostream>
+using namespace std;
+#include <math.h>
+
+
+int main()
+{
+	system("chcp 1251");
+	double S, p, n, m, r;
+
+	cout << "Введите переменные S, p, n: " << endl;
+	cin >> S >> p >> n;
+
+	if (S > 0 and n > 0 and p >= 0)
+	{
+		if (p == 0)
+		{
+			m = S / 12 * n;
+			cout << "Месячная выплата = " << m << endl;
+		}
+		else
+		{
+			r = p / 100;
+
+			m = (S * r * pow(1 + r, n)) / (12 * (pow(1 + r, n) - 1));
+
+			cout << "Месячная выплата = " << m << endl;
+		}
+	}
+
+
+
+
+	cout << "Введите переменные S, m, n: " << endl;
+	cin >> S >> m >> n;
+
+	if (S > 0 and n > 0 and m > 0)
+	{
+		for (double i = 0.01; i < 1; i = i + 0.01)
+		{			
+			if (m == (S * i * pow(1 + i, n)) / (12 * (pow(1 + i, n) - 1)))
+			{
+				r = i;
+				cout << "Процент = " << r * 100 << endl;
+			}
+			if (r == 0)
+			{
+				cout << "Процент = " << 0 << endl;
+			}
+		}
+		 
+	}
+
+
+
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     return(0);
 }
