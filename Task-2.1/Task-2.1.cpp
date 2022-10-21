@@ -149,7 +149,7 @@ using namespace std;
 int main()
 {
 	system("chcp 1251");
-	double S, p, n, m, r;
+	double S, p, n, m, r, num;
 
 	cout << "Введите переменные S, p, n: " << endl;
 	cin >> S >> p >> n;
@@ -176,34 +176,49 @@ int main()
 
 	cout << "Введите переменные S, m, n: " << endl;
 	cin >> S >> m >> n;
-
+	r = 0;
 	if (S > 0 and n > 0 and m > 0)
 	{
-		for (double i = 0.01; i < 1; i = i + 0.01)
-		{			
-			if (m == (S * i * pow(1 + i, n)) / (12 * (pow(1 + i, n) - 1)))
+		if (m == S / 12 * n)
+		{
+			cout << "Процент = " << 0 << endl;
+		}
+		else 
+		{	
+			for (double i = 0; i < 1; i = i + 0.0001)
 			{
-				r = i;
-				cout << "Процент = " << r * 100 << endl;
-			}
-			if (r == 0)
-			{
-				cout << "Процент = " << 0 << endl;
+				num = ((S * i * pow(1 + i, n)) / (12 * (pow(1 + i, n) - 1)));
+				num = round(num);
+				if (round(m)/10 == num/10)
+				{
+					r = i;
+					cout << "Процент = " << r * 100 << endl;
+				}
+
 			}
 		}
-		 
 	}
-
-
-
+    
+    
+    
+    
+    
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main()
+{
+	ofstream fout("cppstudio.txt");
+	fout << "Работа с файлами";
+	fout.close();
+	setlocale(0, ""); // корректное отображение Кириллицы
+	char buff[20]; // буфер промежуточного хранения для текста из файла
+	ifstream fin("cppstudio.txt"); // открыли файл для чтения
+	fin.getline(buff, 20); // считали строку из файла
+	fin.close(); // закрываем файл
+	cout << buff << endl; // вывод строки
+	return 0;
 }
-    
-    
-    
-    
-    
-    
-    
     
     
     
